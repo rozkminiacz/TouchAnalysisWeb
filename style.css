@@ -1,0 +1,222 @@
+*{
+  box-sizing: border-box;
+}
+*::-moz-selection{
+  background-color: #444;
+  color: #eee;
+}
+*::selection{
+  background-color: #444;
+  color: #eee;
+}
+body{
+  font-family: 'Open Sans', sans-serif;
+  display:flex;
+  background:#333;
+  color:#f4f4f4;
+  margin:0;
+}
+.main-wrapper{
+  margin: auto;
+  padding: 0 10px;
+}
+.content-wrapper{
+  display: flex;
+}
+h1{
+  font-size: 2em;
+  text-shadow: 0 2px #000;
+}
+
+/* Data list */
+.data-list-container > ul{
+  list-style: none;
+  padding: 0;
+}
+.data-list-container > ul > li{
+  background: #eee;
+  color: #111;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+.data-list-container > ul > li:hover{
+  background-color: #ddd;
+  cursor:pointer;
+}
+.data-list-container > ul > li.active{
+  background-color: #2d9470;
+  color: #eee;
+}
+.data-list-container h3{
+  margin:0;
+  margin-bottom:5px;
+}
+.data-list-container .info-wrapper{
+  white-space: pre-line;
+}
+.data-list-container .info-wrapper > span{
+  border-bottom: 1px solid #ccc;
+  width: calc(50% - 5px);
+  display: inline-block;
+}
+.data-list-container .info-wrapper > span.label{
+  font-weight:600;
+  margin-right: 5px;
+}
+.data-list-container li.active .info-wrapper > span{
+  border-bottom: 1px solid #1c6d51;
+}
+.data-list-container .info-wrapper > span:empty{
+  display: none;
+}
+.list-operations{
+  display:table;
+}
+input[type="search"],
+.sort{
+  display: block;
+  float: left;
+  margin: 3px;
+}
+input[type="search"]{
+  height: 30px;
+  padding: 5px;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 0 3px #888 inset;
+}
+input[type="search"]:focus{
+  box-shadow: 0 0 3px #000;
+  outline:none;
+}
+.sort {
+  padding:2px 10px;
+  border-radius: 2px;
+  border:none;
+  color:#fff;
+  text-decoration: none;
+  background-color:#436877;
+  height:30px;
+}
+.sort:hover {
+  cursor:pointer;
+}
+.sort.asc,
+.sort.desc,
+.sort:hover{
+  background-color: #357794;
+}
+.sort:focus {
+  outline:none;
+}
+.sort::after {
+  display:inline-block;
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+  margin-right: 2px;
+}
+.sort.asc::after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:0px;
+  right:-5px;
+}
+.sort.desc::after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  content:"";
+  position: relative;
+  top: -3px;
+  right:-5px;
+}
+
+/* Charts */
+.charts-container{
+  height: 100vh;
+  overflow-y:auto;
+  overflow-x:hidden;
+  display: flex;
+  flex-direction:column;
+/*   position: fixed; */
+/*   transform: none !important; */
+}
+.charts-container > div {
+  margin:4px 10px;
+}
+.charts-container > div:first-child {
+  margin-top:10px;
+}
+.charts-container > div:last-child {
+  margin-bottom:10px;
+}
+.highcharts-background{
+  fill: #f4f4f4;
+  rx: 4;
+  ry: 4;
+}
+.highcharts-tooltip{
+  filter: none !important;
+}
+.highcharts-tooltip text{
+  font-size: 14px !important;
+}
+.highcharts-tooltip-box {
+  stroke-width: 0;
+  fill: transparent;
+}
+.touchpts-chart-container .highcharts-tooltip-box {
+  stroke-width: 1;
+  fill: rgb(251, 251, 251);
+}
+.highcharts-loading{
+  background-color: #f4f4f4 !important;
+  color: #000;
+  opacity: 1 !important;
+  visibility: visible;
+  display: block !important;
+}
+.highcharts-loading-hidden{
+  visibility: hidden;
+  opacity: 0 !important;
+}
+.highcharts-contextbutton > *{
+  transform: translate(5px, 10px);
+}
+.highcharts-tick,
+.highcharts-axis-line,
+.highcharts-grid-line{
+  stroke: #aaa
+}
+.highcharts-xaxis-grid .highcharts-grid-line,
+.highcharts-yaxis .highcharts-axis-line{
+  visibility:hidden;
+}
+.highcharts-crosshair-thin{
+  stroke: #f33838
+}
+
+/* Animations */
+.sort,
+.sort::after,
+input[type="search"],
+.data-list-container > ul > li,
+.charts-container,
+.highcharts-loading{
+  transition: all .3s ease;
+}
